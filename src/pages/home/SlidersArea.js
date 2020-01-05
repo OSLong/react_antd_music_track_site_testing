@@ -25,6 +25,8 @@ const SlidersAreaComponent = (props ) => {
     )
 }
 
+// Prop type use to make IDE recognize what accept api
+// from component
 SlidersAreaComponent.propTypes = {
     sliders: PropTypes.array,
     onSliderClick: PropTypes.func

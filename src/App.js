@@ -18,6 +18,8 @@ function App() {
   );
 }
 
+// wrap needed context
+// browser router is used for router , if not set , router not working
 const wrapApp = () => (
   <BrowserRouter>
     <App />

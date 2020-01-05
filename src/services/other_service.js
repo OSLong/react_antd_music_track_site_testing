@@ -1,3 +1,4 @@
+// replace with request from server later
 export const getSliderThumbnailsService = async () => {
     const MOCK_SLIDERS = ["facebook", "youtube", "twitter"].map(key => ({
         key: key,

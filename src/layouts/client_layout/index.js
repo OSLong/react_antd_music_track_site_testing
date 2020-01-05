@@ -14,7 +14,12 @@ const LOGO_URL = "https://via.placeholder.com/468x60?text=Logo"
 const ClientLayout = props => {
     const { pageKey } = props
 
+    // Get History from router 
+    // so can push without use link
     const routeHistory = useHistory()
+
+    // set menu as array 
+    // easy on render
     const pageMenus = [
         {
             link: "/",
@@ -34,6 +39,8 @@ const ClientLayout = props => {
 
     ]
 
+    // when ( home , album , about )  click
+    // change page
     const onMenuClick = (menu) => {
         routeHistory.push(menu.link)
     }
@@ -47,6 +54,8 @@ const ClientLayout = props => {
                         src={LOGO_URL}
                     />
                 </div>
+
+                {/* Page Center , decorated in style */}
                 <div className={styles.headerCenterArea}>
                     <Menu
                         className={styles.menu}
@@ -73,6 +82,8 @@ const ClientLayout = props => {
                     />
                 </div>
             </Header>
+
+            {/* Page Content is the children of props , render page content it here */}
             <Content>
                 {props.children}
             </Content>
@@ -80,6 +91,8 @@ const ClientLayout = props => {
     )
 }
 
+// Prop type use to make IDE recognize what accept api
+// from component
 ClientLayout.propTypes = {
     pageKey: PropType.any
 }

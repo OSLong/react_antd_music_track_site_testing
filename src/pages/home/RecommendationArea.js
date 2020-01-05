@@ -8,7 +8,6 @@ import { Row, Col } from "antd/es/grid"
 import TrackComponent from "../../components/Track/TrackComponent"
 import styles from "./styles.module.css"
 
-const { Meta } = Card
 
 const RecommendationAreaComponent = (props) => {
     const { tracks } = props
@@ -29,33 +28,17 @@ const RecommendationAreaComponent = (props) => {
             </Row>
         </Card>
     )
-    return (
-        <Card>
-            <Meta
-                description={
-                    <>
-                        <Divider />
-                        <h1>Description</h1>
-                    </>
-                }
-                title={"Recommendation"} >
-                <h1>Description</h1>
-            </Meta>
-        </Card>
-    )
-    return (
-        <div>
-            <Title children={"Recommendation"} />
-            <Divider />
-            <h1>Recommendation Area</h1>
-        </div>
-    )
+  
 }
 
+// Prop type use to make IDE recognize what accept api
+// from component
 RecommendationAreaComponent.propTypes = {
     tracks: PropTypes.array
 }
 
+// default props is what set default to props
+// if no defaultProps , its value must be undefined
 RecommendationAreaComponent.defaultProps = {
     tracks: []
 }

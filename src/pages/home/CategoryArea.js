@@ -15,17 +15,15 @@ const CategoryAreaComponent = props => {
         tracks
     } = props
 
-    console.log("render catgro", selectedCategory)
-
     return (
         <Card>
             <div className={styles.categoryCardHeader}>
                 <Title level={4}>Category </Title>
                 <SizedBox width={"10px"} />
-                <Menu 
-                onClick={param => onCategoryChanged(param.key)}
-                selectedKeys={selectedCategory} 
-                mode={"horizontal"}>
+                <Menu
+                    onClick={param => onCategoryChanged(param.key)}
+                    selectedKeys={selectedCategory}
+                    mode={"horizontal"}>
 
                     {availableCategories.map(category => {
                         return (
@@ -53,6 +51,8 @@ const CategoryAreaComponent = props => {
     )
 }
 
+// Prop type use to make IDE recognize what accept api
+// from component
 CategoryAreaComponent.propTypes = {
     availableCategories: PropType.array,
     selectedCategory: PropType.any,
@@ -60,6 +60,8 @@ CategoryAreaComponent.propTypes = {
     tracks: PropType.array
 }
 
+// default props is what set default to props
+// if no defaultProps , its value must be undefined
 CategoryAreaComponent.defaultProps = {
     availableCategories: [],
     tracks: []

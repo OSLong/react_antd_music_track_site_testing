@@ -1,3 +1,5 @@
+
+// replace with request from server later
 export const getTracksByCategory = async (key) =>  {
     const MOCK_DATA = Array(10).fill("").map((uselessString, index) => ({
         key: index,
@@ -9,6 +11,7 @@ export const getTracksByCategory = async (key) =>  {
     }
 }
 
+// replace with request from server later
 export const getRecommendationTracksService = async (key) =>  {
     const MOCK_DATA = Array(10).fill("").map((uselessString, index) => ({
         key: index,
