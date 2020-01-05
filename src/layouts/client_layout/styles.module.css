@@ -1,0 +1,20 @@
+.logo {
+    /* float: left; */
+  }
+
+  .header {
+      display: flex;
+      flex-direction: row;
+      background: #fff !important;
+      box-shadow: 0px 2px 10px  grey;
+  }
+
+  .headerCenterArea {
+      flex-grow: 4;
+      display: flex;
+      justify-content: center;
+  }
+
+  .headerRightArea {
+    flex-grow: 1;
+  }
