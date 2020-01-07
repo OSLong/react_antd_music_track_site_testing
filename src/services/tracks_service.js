@@ -16,7 +16,7 @@ export const getRecommendationTracksService = async (key) =>  {
     const MOCK_DATA = Array(10).fill("").map((uselessString, index) => ({
         key: index,
         name: `Recommendation Song #${index}`,
-        imageUrl: `https://via.placeholder.com/300x150?text=Recommend+Song+#+${index}`
+        imageUrl: `https://via.placeholder.com/300x150?text=Recommend+Song+#+${index}`,
     }))
     return {
         data : MOCK_DATA
@@ -27,7 +27,9 @@ export const getRecentlyAddedTracksService = async () => {
     const MOCK_DATA = Array(12).fill("").map((uselessString, index) => ({
         key: index,
         name: `Recently Song #${index}`,
-        imageUrl: `https://via.placeholder.com/300x150?text=Recently++Song+#+${index}`
+        imageUrl: `https://via.placeholder.com/300x150?text=Recently++Song+#+${index}`,
+        artist: `Artist #${index}`
+
     }))
     return {
         data : MOCK_DATA

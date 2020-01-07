@@ -17,8 +17,9 @@ const TrackMiniComponent = props => {
     return (
         <Item>
             <Meta
-                avatar={<Avatar shape={"square"} src={track.imageUrl} />}
+                avatar={<Avatar shape={"square"} size={"large"} src={track.imageUrl} />}
                 title={track.name}
+                description={track.artist}
             />
         </Item>
     )

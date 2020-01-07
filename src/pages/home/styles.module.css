@@ -21,6 +21,11 @@
     overflow: scroll;
 }
 
+.popularArtistsRow {
+    display: flex !important;
+    overflow: scroll;
+}
+
 .categoryCardHeader {
     display: flex;
     align-items: center;

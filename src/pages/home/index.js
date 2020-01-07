@@ -12,6 +12,8 @@ import CategoryAreaComponent from "./CategoryArea"
 import { getTracksByCategory } from "../../services/tracks_service"
 import { getAvailableCategoriesService } from "../../services/category_service"
 import RecentlyAddedArea from "./RecentlyAddedArea"
+import { getPopularArtistsService } from "../../services/artist_service"
+import ArtisanPopularAreaComponent from "./ArtisanPopularArea"
 
 const HomePage = props => {
     const [sliders, setSliders] = useState([])
@@ -25,6 +27,8 @@ const HomePage = props => {
 
     const [recentlyAddedTracks, setRecentlyAddedTracks] = useState([])
 
+    const [popularArtists , setPopularArtists]= useState([])
+
     ///////////////////////////////////////
     // What Start by sync is mean 
     // go fetch data from server
@@ -36,6 +40,14 @@ const HomePage = props => {
             .then(response => {
                 const slidersData = response.data
                 setSliders(slidersData)
+            })
+    }
+
+    const syncPopularArtists = () => {
+        return getPopularArtistsService()
+            .then(response => {
+                const artists = response.data
+                setPopularArtists(artists)
             })
     }
 
@@ -81,6 +93,7 @@ const HomePage = props => {
         syncRecommendation()
         syncCategories()
         syncRecentlyTracks()
+        syncPopularArtists()
     }, [])
 
 
@@ -132,8 +145,11 @@ const HomePage = props => {
 
             <SizedBox height="50px" />
 
+            <ArtisanPopularAreaComponent 
+                artists={popularArtists}
+            />
 
-            
+
 
             <SizedBox height="50px" />
 
