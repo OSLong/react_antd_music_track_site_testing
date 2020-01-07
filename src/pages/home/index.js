@@ -6,11 +6,12 @@ import { Link } from "react-router-dom"
 import SlidersAreaComponent from "./SlidersArea"
 import RecommendationAreaComponent from "./RecommendationArea"
 import SizedBox from "../../components/SizedBox/SizedBox"
-import { getRecommendationTracksService } from "../../services/tracks_service"
+import { getRecommendationTracksService, getRecentlyAddedTracksService } from "../../services/tracks_service"
 import CategoryAreaComponent from "./CategoryArea"
 
 import { getTracksByCategory } from "../../services/tracks_service"
 import { getAvailableCategoriesService } from "../../services/category_service"
+import RecentlyAddedArea from "./RecentlyAddedArea"
 
 const HomePage = props => {
     const [sliders, setSliders] = useState([])
@@ -20,6 +21,9 @@ const HomePage = props => {
     const [availableCategories, setAvailableCategories] = useState([])
     const [selectedCategory, setSelectedCategory] = useState("")
     const [categoryTracks, setCategoryTracks] = useState([])
+
+
+    const [recentlyAddedTracks, setRecentlyAddedTracks] = useState([])
 
     ///////////////////////////////////////
     // What Start by sync is mean 
@@ -60,6 +64,14 @@ const HomePage = props => {
             })
     }
 
+    const syncRecentlyTracks = () => {
+        getRecentlyAddedTracksService()
+            .then(response => {
+                const tracks = response.data
+                setRecentlyAddedTracks(tracks)
+            })
+    }
+
     // use Effect with second parameter empty array
     // is equal to ComponentDidMount in Class Component
     // so when home page mounted
@@ -68,6 +80,7 @@ const HomePage = props => {
         syncSliders()
         syncRecommendation()
         syncCategories()
+        syncRecentlyTracks()
     }, [])
 
 
@@ -111,6 +124,18 @@ const HomePage = props => {
                 tracks={categoryTracks}
             />
 
+            <SizedBox height="50px" />
+
+            <RecentlyAddedArea 
+                tracks={recentlyAddedTracks}
+            />
+
+            <SizedBox height="50px" />
+
+
+            
+
+            <SizedBox height="50px" />
 
         </ClientLayout>
     )

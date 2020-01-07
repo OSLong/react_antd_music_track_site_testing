@@ -22,3 +22,14 @@ export const getRecommendationTracksService = async (key) =>  {
         data : MOCK_DATA
     }
 }
+
+export const getRecentlyAddedTracksService = async () => {
+    const MOCK_DATA = Array(12).fill("").map((uselessString, index) => ({
+        key: index,
+        name: `Recently Song #${index}`,
+        imageUrl: `https://via.placeholder.com/300x150?text=Recently++Song+#+${index}`
+    }))
+    return {
+        data : MOCK_DATA
+    }
+}
