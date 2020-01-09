@@ -18,11 +18,14 @@ const { Meta } = Item
 const ArtistInfoAreaComponent = (props) => {
     const { artist } = props
 
+    // Simulate Delay get artist from server
+    // so default artist is undefined
+    // when undefined return Loading...
     if (!artist) {
         return <h1>Loading ...</h1>
     }
-    console.log("aritsan info ", artist)
     return (
+        // these style make avatar and info responsive on phone
         <Row style={{display: "flex",flexWrap:"wrap", alignItems:"center",justifyContent:"center",textAlign:"centter"}}>
             <Col sm={24} style={{width:"fit-content"}}>
                 <Avatar

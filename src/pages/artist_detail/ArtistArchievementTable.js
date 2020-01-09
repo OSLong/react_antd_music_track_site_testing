@@ -10,13 +10,22 @@ const ArtistArchievementTableComponent = (props) => {
 
     let columns = []
 
+    // when type song return column for song
+    // when type album return column for album
+    // data is get from outside
     if (type === "song") {
         columns = [
             {
+                // must have , no use
                 key: "key",
+                // get data from each row of object
                 dataIndex: "key",
+                // column title
                 title: "#",
+                // column width
                 width: 20,
+                // render cell when need
+                // render("data from index" , row , rowIndex)
                 render: key => key + 1
             },
             {
