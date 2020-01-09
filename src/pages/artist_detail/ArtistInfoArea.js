@@ -5,42 +5,64 @@ import Text from "antd/es/typography/Text"
 import { Divider } from "antd"
 import Card from "antd/es/card"
 import { Row, Col } from "antd/es/grid"
-import TrackComponent from "../../components/Track/TrackComponent"
-import styles from "./styles.module.css"
+import ClientLayout from "../../layouts/client_layout"
+import Descriptions from "antd/es/descriptions"
+import List from "antd/es/list"
+// import styles from "./styles.module.css"
+import Avatar from "antd/es/avatar"
+import SizedBox from "../../components/SizedBox/SizedBox"
 
+const { Item } = List
+const { Meta } = Item
 
-const RecommendationAreaComponent = (props) => {
-    const { tracks } = props
+const ArtistInfoAreaComponent = (props) => {
+    const { artist } = props
+
+    if (!artist) {
+        return <h1>Loading ...</h1>
+    }
+    console.log("aritsan info ", artist)
     return (
-        <Card>
-            <Title level={4}>Recommendation</Title>
-            <Divider />
-            <Row gutter={24} className={styles.recommendationRow}>
+        <Row style={{display: "flex",flexWrap:"wrap", alignItems:"center",justifyContent:"center",textAlign:"centter"}}>
+            <Col sm={24} style={{width:"fit-content"}}>
+                <Avatar
+                    src={artist.imageUrl}
+                    size={250}
+                />
+            </Col>
 
-                {tracks.map(track => {
-                    return (
-                        <Col sm={12} md={6}>
-                            <TrackComponent track={track} />
-                        </Col>
-                    )
-                })}
+            <Col sm={24} md={12} style={{flexGrow:1, textAlign:"center"}}>
 
-            </Row>
-        </Card>
+                <Descriptions
+                    bordered
+                    title={<Title>{artist.name}</Title>}
+                    column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
+                >
+                    <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+                    <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
+                    <Descriptions.Item label="time">18:00:00</Descriptions.Item>
+                    <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
+                    <Descriptions.Item label="Discount">$20.00</Descriptions.Item>
+                    <Descriptions.Item label="Official">$60.00</Descriptions.Item>
+
+                </Descriptions>
+            </Col>
+
+        </Row>
     )
-  
+
 }
 
 // Prop type use to make IDE recognize what accept api
 // from component
-RecommendationAreaComponent.propTypes = {
-    tracks: PropTypes.array
+ArtistInfoAreaComponent.propTypes = {
+    artist: PropTypes.object
 }
 
 // default props is what set default to props
 // if no defaultProps , its value must be undefined
-RecommendationAreaComponent.defaultProps = {
-    tracks: []
+ArtistInfoAreaComponent.defaultProps = {
+
 }
 
-export default RecommendationAreaComponent
+export default ArtistInfoAreaComponent

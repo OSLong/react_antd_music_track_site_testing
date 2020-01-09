@@ -2,6 +2,7 @@ import React from "react"
 import PropType from "prop-types"
 import Card from "antd/es/card"
 import Avatar from "antd/es/avatar"
+import { Link } from "react-router-dom"
 
 const { Meta } = Card
 
@@ -14,7 +15,7 @@ const ArtistComponent = props => {
 
     return (
         <Card
-        style={{display:"flex",alignItems:"center",flexDirection:"column"}}
+            style={{ display: "flex", alignItems: "center", flexDirection: "column" }}
             cover={
                 <Avatar
                     shape={"circle"}
@@ -24,7 +25,7 @@ const ArtistComponent = props => {
 
             <Meta
                 style={{ textAlign: "center" }}
-                title={artist.name}
+                title={(<Link to={`/artist/${artist.key}`}>{artist.name}</Link>)}
                 description={`${artist.total_songs} songs`}
             />
 

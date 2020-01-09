@@ -24,7 +24,7 @@ function RecentlyAddedAreaComponent(props) {
 
                 {tracks.map(track => {
                     return (
-                        <Col sm={12} md={6}>
+                        <Col sm={12} md={8}>
                             <TrackMiniComponent
                                 track={track}
                             />

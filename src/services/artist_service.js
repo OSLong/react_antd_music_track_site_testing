@@ -15,7 +15,7 @@ export const getPopularArtistsService = async ( ) => {
     const MOCK_DATA = Array(12).fill("").map((uselessString, index) => ({
         key: index,
         name: `Artist #${index}`,
-        imageUrl: `https://via.placeholder.com/300x150?text=Popular++Artist+#+${index}`,
+        imageUrl: `https://via.placeholder.com/300x150?text=Popular++Artist+${index}`,
         total_songs: randomNumber(1000)
     }))
     return {
@@ -25,8 +25,8 @@ export const getPopularArtistsService = async ( ) => {
 
 export const getArtistByIDService = async (id) => {
     const MOCK_DATA = {
-        name: "Artisan Name",
-        imageUrl: `https://via.placeholder.com/300x150?text=Artist+#+${id}`
+        name: `Artist #${id}`,
+        imageUrl: `https://via.placeholder.com/300x150?text=Artist+${id}`
     }
     return {
         data : MOCK_DATA

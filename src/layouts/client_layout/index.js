@@ -84,7 +84,7 @@ const ClientLayout = props => {
             </Header>
 
             {/* Page Content is the children of props , render page content it here */}
-            <Content>
+            <Content style={{padding:"24px"}}>
                 {props.children}
             </Content>
         </Layout>

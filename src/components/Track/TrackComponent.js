@@ -2,6 +2,7 @@ import React from "react"
 import PropType from "prop-types"
 import Card from "antd/es/card"
 import Avatar from "antd/es/avatar"
+import TrackPlayerComponent from "../Player/TrackPlayer"
 
 const { Meta } = Card
 
@@ -17,6 +18,7 @@ const TrackComponent = props => {
         style={{display:"flex",alignItems:"center", flexDirection:"column"}}
          cover={<Avatar shape={"square"} size={150} src={track.imageUrl}/>}>
             <Meta description={track.name} />
+            <TrackPlayerComponent track={track} />
         </Card>
     )
 }
