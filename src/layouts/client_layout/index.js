@@ -27,7 +27,7 @@ const ClientLayout = props => {
             key: "home"
         },
         {
-            link: "/album",
+            link: "/albums",
             label: "Album",
             key: "album"
         },
